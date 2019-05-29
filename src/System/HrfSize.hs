@@ -1,6 +1,7 @@
 module System.HrfSize
     ( determineFileSize,
-      FileSize(..)
+      FileSize(..),
+      convertSize
     ) where
 
 import           System.IO (FilePath, IOMode (ReadMode), hFileSize,
