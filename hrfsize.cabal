@@ -1,20 +1,16 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.1.
---
--- see: https://github.com/sol/hpack
---
--- hash: 49d83e995f9503dc729e312af9f6b3df35b4e314f415fc56171cb1ee5257c1d5
-
 name:           hrfsize
 version:        0.0.1
-description:    File size in human readable format 
+description:    Simple Haskell library for determining size of file in human readable format
+synopsis:       File size in human readable format
 homepage:       https://github.com/librerush/hrfsize#readme
 bug-reports:    https://github.com/librerush/hrfsize/issues
 author:         Dias Kozhabay <librerush@tutanota.com>
 maintainer:     Dias Kozhabay <librerush@tutanota.com>
 license:        BSD3
 license-file:   LICENSE
+category:       System
 build-type:     Simple
 extra-source-files:
     README.md
