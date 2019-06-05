@@ -8,8 +8,8 @@ import           System.IO (FilePath, IOMode (ReadMode), hFileSize,
                             withBinaryFile)
 
 -- | IEC standard
-data FileSize = Bytes Double | KiB Double | MiB Double
-              | GiB Double | TiB Double
+data FileSize = Bytes !Double | KiB !Double | MiB !Double
+              | GiB !Double | TiB !Double
   deriving (Show, Eq, Ord)
 
 convertSize :: Double -> FileSize
