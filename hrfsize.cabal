@@ -1,7 +1,7 @@
 cabal-version: 1.12
 
 name:           hrfsize
-version:        0.0.1
+version:        0.0.2
 description:    Simple Haskell library for determining size of file in human readable format
 synopsis:       File size in human readable format
 homepage:       https://github.com/librerush/hrfsize#readme
