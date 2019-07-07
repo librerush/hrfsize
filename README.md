@@ -2,6 +2,7 @@
 
 ## Simple Haskell library for determining size of file in human readable format
 
+![Hackage](https://img.shields.io/hackage/v/hrfsize.svg?style=plastic)
 
 Example:
 
