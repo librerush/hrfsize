@@ -17,3 +17,7 @@ main = determineFileSize "/path/to/file" >>= print
 
 ## TODOs
 - determine size of directories
+- better exception handling
+- write tests
+
+
