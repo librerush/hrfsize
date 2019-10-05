@@ -1,11 +1,14 @@
-module System.HrfSize
-    ( determineFileSize,
-      FileSize(..),
-      convertSize
-    ) where
+{-# LANGUAGE ScopedTypeVariables #-}
 
-import           System.IO (FilePath, IOMode (ReadMode), hFileSize,
-                            withBinaryFile)
+module System.HrfSize
+  ( determineFileSize
+  , FileSize(..)
+  , convertSize
+  ) where
+
+import           Control.Exception
+import           System.IO         (FilePath, IOMode (ReadMode), hFileSize,
+                                    withBinaryFile)
 
 -- | IEC standard
 data FileSize
@@ -36,8 +39,12 @@ convertSize size | size < 1024.0 = Bytes $ trunc size
                              a ++ take 3 b
 
 -- | Determines file's size
-determineFileSize :: FilePath -> IO FileSize
+determineFileSize :: FilePath
+                  -> IO (Maybe FileSize)
 determineFileSize pathToFile = do
-  fileInt <- withBinaryFile pathToFile ReadMode hFileSize
-  let file = fromInteger fileInt :: Double
-  return $ convertSize file
+  fileInt <- try $ withBinaryFile pathToFile ReadMode hFileSize
+  case fileInt of
+    Left (err :: SomeException) -> pure $ Nothing
+    Right r -> do
+      let file = fromInteger r :: Double
+      pure $ Just $ convertSize file
